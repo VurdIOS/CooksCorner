@@ -7,13 +7,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SigningViewController: UIViewController {
+    
+    let contentView = SigningContentView()
+    
+    override func loadView() {
+        view = contentView
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+
+        
     }
-
-
+    
 }
 
