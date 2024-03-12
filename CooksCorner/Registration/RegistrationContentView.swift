@@ -1,5 +1,5 @@
 //
-//  SigningContentView.swift
+//  RegistrationContentView.swift
 //  CooksCorner
 //
 //  Created by Камаль Атавалиев on 12.03.2024.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol SigningContentViewDelegate: AnyObject {
-    func signUpButtonTapped()
+protocol RegistrationContentViewDelegate: AnyObject {
+    func signInButtonTapped()
 }
 
-class SigningContentView: UIView {
+class RegistrationContentView: UIView {
     
-    weak var delegate: SigningContentViewDelegate?
+    weak var delegate: RegistrationContentViewDelegate?
     
     private let orangeView: UIView = {
         let view = UIView()
@@ -27,12 +27,11 @@ class SigningContentView: UIView {
         label.textAlignment = .left
         label.numberOfLines = 0
         label.textColor = .white
-        let attributedString = NSMutableAttributedString(string: "Welcome Back \nTo CooksCorner")
+        let attributedString = NSMutableAttributedString(string: "Sign up for delicious \nDiscoveries")
         
         if let range = attributedString.string.range(of: " ", options: .backwards) {
             let nsRange = NSRange(range, in: attributedString.string)
             
-            // Применение разных стилей шрифта к разным частям текста
             attributedString.addAttribute(.font, value: UIFont(name: "Poppins-Light", size: 25)!, range: NSRange(location: 0, length: nsRange.lowerBound))
             attributedString.addAttribute(.font, value: UIFont(name: "Poppins-SemiBold", size: 25)!, range: NSRange(location: nsRange.upperBound, length: attributedString.length - nsRange.upperBound))
         }
@@ -41,6 +40,25 @@ class SigningContentView: UIView {
         
         return label
     }()
+    
+    private let nameTextFieldTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Name"
+        label.textAlignment = .left
+        label.textColor = .mainOrangeColor
+        label.font = UIFont(name: "Poppins-Medium", size: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let nameTextField: UITextField = {
+        let textField = UITextField()
+        textField.customTextField(image: UIImage(named: "EmailLogoTextField")!)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
     
     private let mailTextFieldTitle: UILabel = {
         let label = UILabel()
@@ -55,11 +73,10 @@ class SigningContentView: UIView {
     
     let mailTextField: UITextField = {
         let textField = UITextField()
-        textField.customTextField(image: UIImage(named: "EmailLogoTextField")!)
+        textField.customTextField(image: UIImage(named: "PersonLogoTextField")!)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-    
     
     private let passwordTextFieldTitle: UILabel = {
         let label = UILabel()
@@ -79,16 +96,34 @@ class SigningContentView: UIView {
         return textField
     }()
     
-    let signInButton: UIButton = {
+    private let passwordConfirmTextFieldTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Password"
+        label.textAlignment = .left
+        label.textColor = .mainOrangeColor
+        label.font = UIFont(name: "Poppins-Medium", size: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let passwordConfirmTextField: UITextField = {
+        let textField = UITextField()
+        textField.customTextField(image: UIImage(named: "VisiblePasswordTextField")!)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    let signUpButton: UIButton = {
         let button = UIButton()
         button.customOrangeButton()
-        button.setTitle("Sign In", for: .normal)
+        button.setTitle("Sign Up", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
     
-    lazy var signUpTextView: UITextView = {
+    lazy var signInTextView: UITextView = {
         let textView = UITextView()
         textView.delegate = self
         textView.isEditable = false
@@ -97,8 +132,8 @@ class SigningContentView: UIView {
         textView.textAlignment = .center
         textView.translatesAutoresizingMaskIntoConstraints = false
         
-        let fullText = "I don't have an account? Sign Up Now"
-        let linkText = "Sign Up Now"
+        let fullText = "I don't have an account? Sign In Now"
+        let linkText = "Sign In Now"
         
         let attributedString = NSMutableAttributedString(string: fullText)
 
@@ -116,6 +151,7 @@ class SigningContentView: UIView {
         return textView
     }()
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -129,12 +165,16 @@ class SigningContentView: UIView {
     private func setupUI() {
         addSubview(orangeView)
         orangeView.addSubview(welcomeTitle)
-        addSubview(mailTextField)
+        addSubview(nameTextField)
+        addSubview(nameTextFieldTitle)
         addSubview(mailTextFieldTitle)
-        addSubview(passwordTextFieldTitle)
+        addSubview(mailTextField)
         addSubview(passwordTextField)
-        addSubview(signInButton)
-        addSubview(signUpTextView)
+        addSubview(passwordTextFieldTitle)
+        addSubview(passwordConfirmTextField)
+        addSubview(passwordConfirmTextFieldTitle)
+        addSubview(signUpButton)
+        addSubview(signInTextView)
         
         NSLayoutConstraint.activate([
             orangeView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -146,9 +186,18 @@ class SigningContentView: UIView {
             welcomeTitle.trailingAnchor.constraint(equalTo: orangeView.trailingAnchor, constant: -20),
             welcomeTitle.bottomAnchor.constraint(equalTo: orangeView.bottomAnchor, constant: -68),
             
+            nameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            nameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            nameTextField.topAnchor.constraint(equalTo: orangeView.bottomAnchor, constant: 49),
+            nameTextField.heightAnchor.constraint(equalToConstant: 44),
+            
+            nameTextFieldTitle.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor),
+            nameTextFieldTitle.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor),
+            nameTextFieldTitle.bottomAnchor.constraint(equalTo: nameTextField.topAnchor, constant: -5),
+            
             mailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             mailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            mailTextField.topAnchor.constraint(equalTo: orangeView.bottomAnchor, constant: 65),
+            mailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 45),
             mailTextField.heightAnchor.constraint(equalToConstant: 44),
             
             mailTextFieldTitle.leadingAnchor.constraint(equalTo: mailTextField.leadingAnchor),
@@ -164,16 +213,23 @@ class SigningContentView: UIView {
             passwordTextFieldTitle.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
             passwordTextFieldTitle.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: -5),
             
-            signInButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            signInButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            signInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 24),
-            signInButton.heightAnchor.constraint(equalToConstant: 44),
+            passwordConfirmTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            passwordConfirmTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            passwordConfirmTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 45),
+            passwordConfirmTextField.heightAnchor.constraint(equalToConstant: 44),
             
-            signUpTextView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            signUpTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -65),
-            signUpTextView.heightAnchor.constraint(equalToConstant: 44),
+            passwordConfirmTextFieldTitle.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
+            passwordConfirmTextFieldTitle.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
+            passwordConfirmTextFieldTitle.bottomAnchor.constraint(equalTo: passwordConfirmTextField.topAnchor, constant: -5),
             
+            signUpButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            signUpButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            signUpButton.topAnchor.constraint(equalTo: passwordConfirmTextField.bottomAnchor, constant: 24),
+            signUpButton.heightAnchor.constraint(equalToConstant: 44),
             
+            signInTextView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            signInTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -65),
+            signInTextView.heightAnchor.constraint(equalToConstant: 44),
             
             
             
@@ -183,10 +239,10 @@ class SigningContentView: UIView {
 }
 
 
-extension SigningContentView: UITextViewDelegate {
+extension RegistrationContentView: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         if URL.absoluteString == "signUp" {
-            delegate?.signUpButtonTapped()
+            delegate?.signInButtonTapped()
         }
         return true
         

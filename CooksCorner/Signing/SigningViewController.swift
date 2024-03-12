@@ -18,9 +18,19 @@ class SigningViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentView.delegate = self
 
         
     }
+    
+}
+
+extension SigningViewController: SigningContentViewDelegate {
+    func signUpButtonTapped() {
+        let viewController = RegistrationViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     
 }
 

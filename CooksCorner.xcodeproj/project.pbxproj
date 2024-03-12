@@ -30,6 +30,10 @@
 		3A4965692BA07ABD0031777B /* SigningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4965682BA07ABD0031777B /* SigningViewModel.swift */; };
 		3A49656B2BA07B780031777B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49656A2BA07B780031777B /* UITextField.swift */; };
 		3A49656D2BA089DA0031777B /* UiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49656C2BA089DA0031777B /* UiButton.swift */; };
+		3AC572A42BA0C7390021693C /* TextFieldRightViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC572A32BA0C7390021693C /* TextFieldRightViewButton.swift */; };
+		3AC572A72BA0CE700021693C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC572A62BA0CE700021693C /* RegistrationViewController.swift */; };
+		3AC572A92BA0CE8D0021693C /* RegistrationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC572A82BA0CE8D0021693C /* RegistrationContentView.swift */; };
+		3AC572AB2BA0CE990021693C /* RegistretionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC572AA2BA0CE990021693C /* RegistretionViewModel.swift */; };
 		3AE076872B9F761400A01C7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE076862B9F761400A01C7D /* AppDelegate.swift */; };
 		3AE076892B9F761400A01C7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE076882B9F761400A01C7D /* SceneDelegate.swift */; };
 		3AE0768B2B9F761400A01C7D /* SigningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0768A2B9F761400A01C7D /* SigningViewController.swift */; };
@@ -62,6 +66,10 @@
 		3A4965682BA07ABD0031777B /* SigningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningViewModel.swift; sourceTree = "<group>"; };
 		3A49656A2BA07B780031777B /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		3A49656C2BA089DA0031777B /* UiButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiButton.swift; sourceTree = "<group>"; };
+		3AC572A32BA0C7390021693C /* TextFieldRightViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldRightViewButton.swift; sourceTree = "<group>"; };
+		3AC572A62BA0CE700021693C /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		3AC572A82BA0CE8D0021693C /* RegistrationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationContentView.swift; sourceTree = "<group>"; };
+		3AC572AA2BA0CE990021693C /* RegistretionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistretionViewModel.swift; sourceTree = "<group>"; };
 		3AE076832B9F761400A01C7D /* CooksCorner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CooksCorner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE076862B9F761400A01C7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AE076882B9F761400A01C7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,24 +104,8 @@
 		3A49653F2BA076640031777B /* ExtraContent */ = {
 			isa = PBXGroup;
 			children = (
-				3A49654A2BA0769B0031777B /* Poppins-Black.ttf */,
-				3A4965442BA0769A0031777B /* Poppins-BlackItalic.ttf */,
-				3A49654B2BA0769B0031777B /* Poppins-Bold.ttf */,
-				3A4965472BA0769B0031777B /* Poppins-BoldItalic.ttf */,
-				3A49654F2BA0769B0031777B /* Poppins-ExtraBold.ttf */,
-				3A4965412BA0769A0031777B /* Poppins-ExtraBoldItalic.ttf */,
-				3A49654C2BA0769B0031777B /* Poppins-ExtraLight.ttf */,
-				3A4965482BA0769B0031777B /* Poppins-ExtraLightItalic.ttf */,
-				3A4965502BA0769B0031777B /* Poppins-Italic.ttf */,
-				3A4965402BA0769A0031777B /* Poppins-Light.ttf */,
-				3A49654E2BA0769B0031777B /* Poppins-LightItalic.ttf */,
-				3A4965422BA0769A0031777B /* Poppins-Medium.ttf */,
-				3A4965432BA0769A0031777B /* Poppins-MediumItalic.ttf */,
-				3A4965512BA0769B0031777B /* Poppins-Regular.ttf */,
-				3A4965492BA0769B0031777B /* Poppins-SemiBold.ttf */,
-				3A4965452BA0769B0031777B /* Poppins-SemiBoldItalic.ttf */,
-				3A4965462BA0769B0031777B /* Poppins-Thin.ttf */,
-				3A49654D2BA0769B0031777B /* Poppins-ThinItalic.ttf */,
+				3AC572A22BA0C6FF0021693C /* SharedView */,
+				3AC572A12BA0C6BD0021693C /* Font */,
 			);
 			path = ExtraContent;
 			sourceTree = "<group>";
@@ -138,6 +130,49 @@
 			path = Signing;
 			sourceTree = "<group>";
 		};
+		3AC572A12BA0C6BD0021693C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				3A49654A2BA0769B0031777B /* Poppins-Black.ttf */,
+				3A4965442BA0769A0031777B /* Poppins-BlackItalic.ttf */,
+				3A49654B2BA0769B0031777B /* Poppins-Bold.ttf */,
+				3A4965472BA0769B0031777B /* Poppins-BoldItalic.ttf */,
+				3A49654F2BA0769B0031777B /* Poppins-ExtraBold.ttf */,
+				3A4965412BA0769A0031777B /* Poppins-ExtraBoldItalic.ttf */,
+				3A49654C2BA0769B0031777B /* Poppins-ExtraLight.ttf */,
+				3A4965482BA0769B0031777B /* Poppins-ExtraLightItalic.ttf */,
+				3A4965502BA0769B0031777B /* Poppins-Italic.ttf */,
+				3A4965402BA0769A0031777B /* Poppins-Light.ttf */,
+				3A49654E2BA0769B0031777B /* Poppins-LightItalic.ttf */,
+				3A4965422BA0769A0031777B /* Poppins-Medium.ttf */,
+				3A4965432BA0769A0031777B /* Poppins-MediumItalic.ttf */,
+				3A4965512BA0769B0031777B /* Poppins-Regular.ttf */,
+				3A4965492BA0769B0031777B /* Poppins-SemiBold.ttf */,
+				3A4965452BA0769B0031777B /* Poppins-SemiBoldItalic.ttf */,
+				3A4965462BA0769B0031777B /* Poppins-Thin.ttf */,
+				3A49654D2BA0769B0031777B /* Poppins-ThinItalic.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		3AC572A22BA0C6FF0021693C /* SharedView */ = {
+			isa = PBXGroup;
+			children = (
+				3AC572A32BA0C7390021693C /* TextFieldRightViewButton.swift */,
+			);
+			path = SharedView;
+			sourceTree = "<group>";
+		};
+		3AC572A52BA0CE1C0021693C /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				3AC572A62BA0CE700021693C /* RegistrationViewController.swift */,
+				3AC572A82BA0CE8D0021693C /* RegistrationContentView.swift */,
+				3AC572AA2BA0CE990021693C /* RegistretionViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		3AE0767A2B9F761400A01C7D = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +194,7 @@
 		3AE076852B9F761400A01C7D /* CooksCorner */ = {
 			isa = PBXGroup;
 			children = (
+				3AC572A52BA0CE1C0021693C /* Registration */,
 				3A4965652BA07A4C0031777B /* Signing */,
 				3A4965642BA07A0B0031777B /* App */,
 				3AE076922B9F761500A01C7D /* Assets.xcassets */,
@@ -257,12 +293,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AE076912B9F761400A01C7D /* CooksCorner.xcdatamodeld in Sources */,
+				3AC572AB2BA0CE990021693C /* RegistretionViewModel.swift in Sources */,
 				3AE0768B2B9F761400A01C7D /* SigningViewController.swift in Sources */,
 				3AE076872B9F761400A01C7D /* AppDelegate.swift in Sources */,
+				3AC572A72BA0CE700021693C /* RegistrationViewController.swift in Sources */,
 				3A49656B2BA07B780031777B /* UITextField.swift in Sources */,
 				3A49653D2BA073A40031777B /* Color.swift in Sources */,
+				3AC572A42BA0C7390021693C /* TextFieldRightViewButton.swift in Sources */,
 				3A4965692BA07ABD0031777B /* SigningViewModel.swift in Sources */,
 				3A4965672BA07AA10031777B /* SigningContentView.swift in Sources */,
+				3AC572A92BA0CE8D0021693C /* RegistrationContentView.swift in Sources */,
 				3AE076892B9F761400A01C7D /* SceneDelegate.swift in Sources */,
 				3A49656D2BA089DA0031777B /* UiButton.swift in Sources */,
 			);
