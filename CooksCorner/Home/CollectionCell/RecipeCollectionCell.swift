@@ -102,13 +102,8 @@ import UIKit
 
 class RecipeCollectionViewCell: UICollectionViewCell {
     
-    static let id = "RecipeCollectionCell"
-    
-    var viewModel: Recipe! {
-        didSet {
-            self.setupWithViewModel()
-        }
-    }
+    static let reuseIdentifier = "RecipeCollectionCell"
+
     
     private lazy var recipeImageView: UIImageView = {
         let imageView = UIImageView()
@@ -154,16 +149,14 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     
     private lazy var likeIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "heart.fill") // Используй свои иконки
-        imageView.tintColor = .white
+        imageView.image = UIImage(named: "LikeIconWhite") // Используй свои иконки
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private lazy var saveIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "bookmark.fill") // Используй свои иконки
-        imageView.tintColor = .white
+        imageView.image = UIImage(named: "SaveIconWhite") // Используй свои иконки
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -176,6 +169,14 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func configure(recipe: Recipe) {
+        recipeImageView.image = recipe.image
+       recipeTitleLabel.text = recipe.title
+       authorNameLabel.text = "by \(recipe.author)"
+       likesLabel.text = "\(recipe.likeAmount)"
+       savesLabel.text = "\(recipe.saveAmount)"
+   }
     
     private func setupViews() {
         self.addSubview(recipeImageView)
@@ -197,7 +198,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
             recipeTitleLabel.bottomAnchor.constraint(equalTo: authorNameLabel.topAnchor, constant: -4),
             
             authorNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
-            authorNameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+            authorNameLabel.bottomAnchor.constraint(equalTo: self.likeIconImageView.topAnchor, constant: -8),
             
             likeIconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
             likeIconImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
@@ -213,16 +214,5 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    private func setupWithViewModel() {
-        guard let viewModel = viewModel else { return }
-        
-        // Тут мы предполагаем, что у тебя есть логика для загрузки изображения
-        // Возможно, тебе понадобится расширение UIImageView для загрузки из интернета или использования кеша
-//        recipeImageView.image = UIImage(named: viewModel.image)
-        
-        recipeTitleLabel.text = viewModel.title
-        authorNameLabel.text = "by \(viewModel.author)"
-        likesLabel.text = "\(viewModel.likeAmount)"
-        savesLabel.text = "\(viewModel.saveAmount)"
-    }
+   
 }

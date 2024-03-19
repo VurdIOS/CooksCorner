@@ -23,7 +23,7 @@ class HomeContentView: UIView {
         let label = UILabel()
         label.attributedText = createAttributedText(withName: name)
         label.numberOfLines = 0 // Для переноса строк
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -44,11 +44,11 @@ class HomeContentView: UIView {
         return control
     }()
     
-    private lazy var recipesCollectionView: UICollectionView = {
+     lazy var recipesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(RecipeCollectionViewCell.self, forCellWithReuseIdentifier: "RecipeCell")
+         collectionView.register(RecipeCollectionViewCell.self, forCellWithReuseIdentifier: RecipeCollectionViewCell.reuseIdentifier)
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -110,8 +110,8 @@ class HomeContentView: UIView {
             
             // RecipesCollectionView constraints
             recipesCollectionView.topAnchor.constraint(equalTo: categorySegmentedControl.bottomAnchor, constant: 16),
-            recipesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            recipesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            recipesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            recipesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             recipesCollectionView.bottomAnchor.constraint(equalTo: tabBar.topAnchor, constant: -16),
             
             // TabBar constraints
@@ -164,6 +164,9 @@ class HomeContentView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
 
 }
+
 
