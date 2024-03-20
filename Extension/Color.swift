@@ -12,4 +12,5 @@ extension UIColor {
     static let textFieldBackGround = #colorLiteral(red: 0.9294117093, green: 0.9294117093, blue: 0.9294117093, alpha: 1)
     #warning("Сделать литерал норм")
     static let blackoutColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.4)
+    
 }

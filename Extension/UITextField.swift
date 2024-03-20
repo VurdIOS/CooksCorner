@@ -8,9 +8,11 @@
 import UIKit
 
 extension UITextField {
-    func customTextField(image: UIImage) {
+    func customTextField(image: UIImage?) {
         let rightViewSize = CGRect(x: 0, y: 0, width: 18, height: 18)
-        let rightView = TextFieldRightViewButton(frame: rightViewSize, image: image)
+        if let image = image {
+            let rightView = TextFieldRightViewButton(frame: rightViewSize, image: image)
+        }
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 44))
         
         self.backgroundColor = .textFieldBackGround

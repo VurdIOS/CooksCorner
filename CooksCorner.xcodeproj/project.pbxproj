@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0B7C1C2BAB31A1005E0B53 /* CreateRecipeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B7C1B2BAB31A1005E0B53 /* CreateRecipeContentView.swift */; };
+		3A0B7C1E2BAB31B9005E0B53 /* CreateRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B7C1D2BAB31B9005E0B53 /* CreateRecipeViewController.swift */; };
+		3A0B7C202BAB31C4005E0B53 /* CreateRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B7C1F2BAB31C4005E0B53 /* CreateRecipeViewModel.swift */; };
 		3A49653D2BA073A40031777B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49653C2BA073A40031777B /* Color.swift */; };
 		3A4965522BA0769B0031777B /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A4965402BA0769A0031777B /* Poppins-Light.ttf */; };
 		3A4965532BA0769B0031777B /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A4965412BA0769A0031777B /* Poppins-ExtraBoldItalic.ttf */; };
@@ -54,6 +57,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0B7C1B2BAB31A1005E0B53 /* CreateRecipeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeContentView.swift; sourceTree = "<group>"; };
+		3A0B7C1D2BAB31B9005E0B53 /* CreateRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewController.swift; sourceTree = "<group>"; };
+		3A0B7C1F2BAB31C4005E0B53 /* CreateRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewModel.swift; sourceTree = "<group>"; };
 		3A49653C2BA073A40031777B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		3A4965402BA0769A0031777B /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		3A4965412BA0769A0031777B /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -113,6 +119,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A0B7C1A2BAB3182005E0B53 /* CreateRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				3A0B7C1B2BAB31A1005E0B53 /* CreateRecipeContentView.swift */,
+				3A0B7C1D2BAB31B9005E0B53 /* CreateRecipeViewController.swift */,
+				3A0B7C1F2BAB31C4005E0B53 /* CreateRecipeViewModel.swift */,
+			);
+			path = CreateRecipe;
+			sourceTree = "<group>";
+		};
 		3A49653E2BA073A90031777B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +271,7 @@
 		3AE076852B9F761400A01C7D /* CooksCorner */ = {
 			isa = PBXGroup;
 			children = (
+				3A0B7C1A2BAB3182005E0B53 /* CreateRecipe */,
 				3A5AC1E82BA9E49F000BA192 /* RecipeDetail */,
 				3A4965652BA07A4C0031777B /* Signing */,
 				3AC572A52BA0CE1C0021693C /* Registration */,
@@ -369,6 +386,7 @@
 				3A70184C2BA216A5001E64E2 /* HomeContentView.swift in Sources */,
 				3A5AC1EA2BA9E4EC000BA192 /* RecipeDetailContentView.swift in Sources */,
 				3AE076872B9F761400A01C7D /* AppDelegate.swift in Sources */,
+				3A0B7C202BAB31C4005E0B53 /* CreateRecipeViewModel.swift in Sources */,
 				3AC572A72BA0CE700021693C /* RegistrationViewController.swift in Sources */,
 				3A49656B2BA07B780031777B /* UITextField.swift in Sources */,
 				3A49653D2BA073A40031777B /* Color.swift in Sources */,
@@ -381,6 +399,8 @@
 				3A4965672BA07AA10031777B /* SigningContentView.swift in Sources */,
 				3A5AC1EC2BA9E506000BA192 /* RecipeDetailViewController.swift in Sources */,
 				3AC572A92BA0CE8D0021693C /* RegistrationContentView.swift in Sources */,
+				3A0B7C1C2BAB31A1005E0B53 /* CreateRecipeContentView.swift in Sources */,
+				3A0B7C1E2BAB31B9005E0B53 /* CreateRecipeViewController.swift in Sources */,
 				3A7018562BA21A5B001E64E2 /* Recipe.swift in Sources */,
 				3AE076892B9F761400A01C7D /* SceneDelegate.swift in Sources */,
 				3A49656D2BA089DA0031777B /* UiButton.swift in Sources */,
