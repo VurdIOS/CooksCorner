@@ -195,7 +195,7 @@ class CreateRecipeContentView: UIView {
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            photoFieldTitle.topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor, constant: 10),
+            photoFieldTitle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
             photoFieldTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
             photoFieldTitle.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             
@@ -237,7 +237,7 @@ class CreateRecipeContentView: UIView {
             VStack.topAnchor.constraint(equalTo: ingredientFieldTitle.bottomAnchor, constant: 4),
             VStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
             VStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
-//            ingredientTextField.heightAnchor.constraint(equalToConstant: 44),
+            ingredientTextField.heightAnchor.constraint(equalToConstant: 44),
         ])
     }
     
@@ -246,7 +246,7 @@ class CreateRecipeContentView: UIView {
         for subview in scrollView.subviews {
             totalHeight += subview.bounds.size.height
         }
-        scrollView.contentSize = CGSize(width: self.frame.width, height: totalHeight)
+        scrollView.contentSize.height = totalHeight
         scrollView.layoutIfNeeded()
     }
     
