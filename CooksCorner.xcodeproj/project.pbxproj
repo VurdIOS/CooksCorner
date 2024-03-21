@@ -33,8 +33,6 @@
 		3A4965692BA07ABD0031777B /* SigningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4965682BA07ABD0031777B /* SigningViewModel.swift */; };
 		3A49656B2BA07B780031777B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49656A2BA07B780031777B /* UITextField.swift */; };
 		3A49656D2BA089DA0031777B /* UiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49656C2BA089DA0031777B /* UiButton.swift */; };
-		3A5AC1E52BA9E480000BA192 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3A5AC1E42BA9E480000BA192 /* SnapKit */; };
-		3A5AC1E72BA9E480000BA192 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3A5AC1E62BA9E480000BA192 /* SnapKit-Dynamic */; };
 		3A5AC1EA2BA9E4EC000BA192 /* RecipeDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC1E92BA9E4EC000BA192 /* RecipeDetailContentView.swift */; };
 		3A5AC1EC2BA9E506000BA192 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC1EB2BA9E506000BA192 /* RecipeDetailViewController.swift */; };
 		3A5AC1EE2BA9E52D000BA192 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AC1ED2BA9E52D000BA192 /* RecipeDetailViewModel.swift */; };
@@ -44,6 +42,9 @@
 		3A7018502BA21752001E64E2 /* RecipeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A70184F2BA21752001E64E2 /* RecipeCollectionCell.swift */; };
 		3A7018532BA217CE001E64E2 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7018522BA217CE001E64E2 /* RecipeViewModel.swift */; };
 		3A7018562BA21A5B001E64E2 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7018552BA21A5B001E64E2 /* Recipe.swift */; };
+		3A799C562BAC8E2E00F65783 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3A799C552BAC8E2E00F65783 /* SnapKit */; };
+		3A799C582BAC8E2E00F65783 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3A799C572BAC8E2E00F65783 /* SnapKit-Dynamic */; };
+		3A799C5B2BAC8E4100F65783 /* SwiftyMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 3A799C5A2BAC8E4100F65783 /* SwiftyMenu */; };
 		3AC572A42BA0C7390021693C /* TextFieldRightViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC572A32BA0C7390021693C /* TextFieldRightViewButton.swift */; };
 		3AC572A72BA0CE700021693C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC572A62BA0CE700021693C /* RegistrationViewController.swift */; };
 		3AC572A92BA0CE8D0021693C /* RegistrationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC572A82BA0CE8D0021693C /* RegistrationContentView.swift */; };
@@ -111,8 +112,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5AC1E52BA9E480000BA192 /* SnapKit in Frameworks */,
-				3A5AC1E72BA9E480000BA192 /* SnapKit-Dynamic in Frameworks */,
+				3A799C562BAC8E2E00F65783 /* SnapKit in Frameworks */,
+				3A799C5B2BAC8E4100F65783 /* SwiftyMenu in Frameworks */,
+				3A799C582BAC8E2E00F65783 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,8 +303,9 @@
 			);
 			name = CooksCorner;
 			packageProductDependencies = (
-				3A5AC1E42BA9E480000BA192 /* SnapKit */,
-				3A5AC1E62BA9E480000BA192 /* SnapKit-Dynamic */,
+				3A799C552BAC8E2E00F65783 /* SnapKit */,
+				3A799C572BAC8E2E00F65783 /* SnapKit-Dynamic */,
+				3A799C5A2BAC8E4100F65783 /* SwiftyMenu */,
 			);
 			productName = CooksCorner;
 			productReference = 3AE076832B9F761400A01C7D /* CooksCorner.app */;
@@ -333,7 +336,8 @@
 			);
 			mainGroup = 3AE0767A2B9F761400A01C7D;
 			packageReferences = (
-				3A5AC1E32BA9E480000BA192 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				3A799C542BAC8E2E00F65783 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				3A799C592BAC8E4100F65783 /* XCRemoteSwiftPackageReference "SwiftyMenu" */,
 			);
 			productRefGroup = 3AE076842B9F761400A01C7D /* Products */;
 			projectDirPath = "";
@@ -624,7 +628,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3A5AC1E32BA9E480000BA192 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		3A799C542BAC8E2E00F65783 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -632,18 +636,31 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		3A799C592BAC8E4100F65783 /* XCRemoteSwiftPackageReference "SwiftyMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KarimEbrahemAbdelaziz/SwiftyMenu.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3A5AC1E42BA9E480000BA192 /* SnapKit */ = {
+		3A799C552BAC8E2E00F65783 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3A5AC1E32BA9E480000BA192 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 3A799C542BAC8E2E00F65783 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		3A5AC1E62BA9E480000BA192 /* SnapKit-Dynamic */ = {
+		3A799C572BAC8E2E00F65783 /* SnapKit-Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3A5AC1E32BA9E480000BA192 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 3A799C542BAC8E2E00F65783 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
+		};
+		3A799C5A2BAC8E4100F65783 /* SwiftyMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A799C592BAC8E4100F65783 /* XCRemoteSwiftPackageReference "SwiftyMenu" */;
+			productName = SwiftyMenu;
 		};
 /* End XCSwiftPackageProductDependency section */
 

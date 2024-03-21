@@ -104,8 +104,18 @@ class CreateRecipeContentView: UIView {
     let ingredientFieldTitle: UILabel = {
         let label = UILabel()
         label.text = "Add a ingredient"
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Poppins-Medium", size: 12)
         return label
+    }()
+    
+    let ingredientTextField: UITextField = {
+        let textField = UITextField()
+        textField.customTextField(image: nil)
+        textField.placeholder = "Ingredient name"
+        textField.translatesAutoresizingMaskIntoConstraints = false
+
+        return textField
     }()
     
     let difficultyFieldTitle: UILabel = {
@@ -129,6 +139,24 @@ class CreateRecipeContentView: UIView {
         return label
     }()
     
+    let VStack: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .leading
+        stackView.distribution = .fillEqually
+        
+        return stackView
+    }()
+    
+    let scrollView: UIScrollView = {
+       let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return scrollView
+        
+    }()
+    
     
     
     private var imageViewHeightConstraint = NSLayoutConstraint()
@@ -138,6 +166,7 @@ class CreateRecipeContentView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .white
         setupUI()
+
     }
     
     required init?(coder: NSCoder) {
@@ -145,26 +174,34 @@ class CreateRecipeContentView: UIView {
     }
     
     private func setupUI() {
-        addSubview(photoFieldTitle)
-        addSubview(backgroundView)
+        addSubview(scrollView)
+        scrollView.addSubview(photoFieldTitle)
+        scrollView.addSubview(backgroundView)
         backgroundView.addSubview(recipePhotoImageView)
         backgroundView.addSubview(addPhotoButton)
         backgroundView.addSubview(changePhotoButton)
-        addSubview(nameFieldTitle)
-        addSubview(nameTextField)
-        addSubview(descriptionFieldTitle)
-        addSubview(descriptionTextField)
+        scrollView.addSubview(nameFieldTitle)
+        scrollView.addSubview(nameTextField)
+        scrollView.addSubview(descriptionFieldTitle)
+        scrollView.addSubview(descriptionTextField)
+        scrollView.addSubview(ingredientFieldTitle)
+        scrollView.addSubview(VStack)
+        VStack.addArrangedSubview(ingredientTextField)
         setupImageView()
         
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: self.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            photoFieldTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
-            photoFieldTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            photoFieldTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            photoFieldTitle.topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor, constant: 10),
+            photoFieldTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            photoFieldTitle.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             
-            backgroundView.topAnchor.constraint(equalTo: self.photoFieldTitle.bottomAnchor, constant: 4),
-            backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            backgroundView.topAnchor.constraint(equalTo: photoFieldTitle.bottomAnchor, constant: 4),
+            backgroundView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             backgroundView.heightAnchor.constraint(equalToConstant: 93),
             
             addPhotoButton.leadingAnchor.constraint(equalTo: recipePhotoImageView.trailingAnchor, constant: 10),
@@ -176,23 +213,41 @@ class CreateRecipeContentView: UIView {
             changePhotoButton.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
             
             nameFieldTitle.topAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 16),
-            nameFieldTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            nameFieldTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            nameFieldTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            nameFieldTitle.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             
             nameTextField.topAnchor.constraint(equalTo: nameFieldTitle.bottomAnchor, constant: 4),
-            nameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            nameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            nameTextField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            nameTextField.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             nameTextField.heightAnchor.constraint(equalToConstant: 44),
             
             descriptionFieldTitle.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 16),
-            descriptionFieldTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            descriptionFieldTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            descriptionFieldTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            descriptionFieldTitle.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             
             descriptionTextField.topAnchor.constraint(equalTo: descriptionFieldTitle.bottomAnchor, constant: 4),
-            descriptionTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            descriptionTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            descriptionTextField.heightAnchor.constraint(equalToConstant: 44)
+            descriptionTextField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            descriptionTextField.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            descriptionTextField.heightAnchor.constraint(equalToConstant: 44),
+            
+            ingredientFieldTitle.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 16),
+            ingredientFieldTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            ingredientFieldTitle.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            
+            VStack.topAnchor.constraint(equalTo: ingredientFieldTitle.bottomAnchor, constant: 4),
+            VStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            VStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+//            ingredientTextField.heightAnchor.constraint(equalToConstant: 44),
         ])
+    }
+    
+    func setupScrollViewHeight() {
+        var totalHeight: CGFloat = 0
+        for subview in scrollView.subviews {
+            totalHeight += subview.bounds.size.height
+        }
+        scrollView.contentSize = CGSize(width: self.frame.width, height: totalHeight)
+        scrollView.layoutIfNeeded()
     }
     
     private func setupImageView() {

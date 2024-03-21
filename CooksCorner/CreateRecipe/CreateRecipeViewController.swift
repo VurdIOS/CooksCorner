@@ -29,11 +29,18 @@ class CreateRecipeViewController: UIViewController {
     }
     
     @objc func addPhotoButtonTapped() {
-           // Функция для отображения image picker
-           let imagePicker = UIImagePickerController()
-           imagePicker.delegate = self
-           imagePicker.sourceType = .photoLibrary
-           self.present(imagePicker, animated: true, completion: nil)
+//           // Функция для отображения image picker
+//           let imagePicker = UIImagePickerController()
+//           imagePicker.delegate = self
+//           imagePicker.sourceType = .photoLibrary
+//           self.present(imagePicker, animated: true, completion: nil)
+        // Создание нового текстового поля
+               let textField = UITextField()
+               textField.placeholder = "Введите текст"
+               textField.borderStyle = .roundedRect
+        contentView.VStack.addArrangedSubview(textField)
+        contentView.VStack.layoutIfNeeded()
+        contentView.setupScrollViewHeight()
        }
 }
 
