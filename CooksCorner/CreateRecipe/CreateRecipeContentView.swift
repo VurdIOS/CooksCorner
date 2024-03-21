@@ -122,6 +122,7 @@ class CreateRecipeContentView: UIView {
         let label = UILabel()
         label.text = "Difficulty"
         label.font = UIFont(name: "Poppins-Medium", size: 12)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -149,7 +150,7 @@ class CreateRecipeContentView: UIView {
         return stackView
     }()
     
-    let scrollView: UIScrollView = {
+    lazy var scrollView: UIScrollView = {
        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -187,6 +188,7 @@ class CreateRecipeContentView: UIView {
         scrollView.addSubview(ingredientFieldTitle)
         scrollView.addSubview(VStack)
         VStack.addArrangedSubview(ingredientTextField)
+        scrollView.addSubview(difficultyFieldTitle)
         setupImageView()
         
         NSLayoutConstraint.activate([
@@ -196,48 +198,53 @@ class CreateRecipeContentView: UIView {
             scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             photoFieldTitle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-            photoFieldTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            photoFieldTitle.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            photoFieldTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            photoFieldTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             backgroundView.topAnchor.constraint(equalTo: photoFieldTitle.bottomAnchor, constant: 4),
-            backgroundView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            backgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             backgroundView.heightAnchor.constraint(equalToConstant: 93),
             
             addPhotoButton.leadingAnchor.constraint(equalTo: recipePhotoImageView.trailingAnchor, constant: 10),
             addPhotoButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: 10),
             addPhotoButton.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
             
+            
             changePhotoButton.leadingAnchor.constraint(equalTo: recipePhotoImageView.trailingAnchor, constant: 10),
             changePhotoButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: 10),
             changePhotoButton.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
             
             nameFieldTitle.topAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 16),
-            nameFieldTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            nameFieldTitle.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            nameFieldTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            nameFieldTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             nameTextField.topAnchor.constraint(equalTo: nameFieldTitle.bottomAnchor, constant: 4),
-            nameTextField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            nameTextField.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            nameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            nameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             nameTextField.heightAnchor.constraint(equalToConstant: 44),
             
             descriptionFieldTitle.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 16),
-            descriptionFieldTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            descriptionFieldTitle.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            descriptionFieldTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            descriptionFieldTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             descriptionTextField.topAnchor.constraint(equalTo: descriptionFieldTitle.bottomAnchor, constant: 4),
-            descriptionTextField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            descriptionTextField.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            descriptionTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            descriptionTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             descriptionTextField.heightAnchor.constraint(equalToConstant: 44),
             
             ingredientFieldTitle.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 16),
-            ingredientFieldTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            ingredientFieldTitle.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            ingredientFieldTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            ingredientFieldTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             VStack.topAnchor.constraint(equalTo: ingredientFieldTitle.bottomAnchor, constant: 4),
-            VStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            VStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            VStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            VStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             ingredientTextField.heightAnchor.constraint(equalToConstant: 44),
+            
+            difficultyFieldTitle.topAnchor.constraint(equalTo: VStack.bottomAnchor, constant: 16),
+            difficultyFieldTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            difficultyFieldTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
         ])
     }
     

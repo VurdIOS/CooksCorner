@@ -34,7 +34,7 @@ class CreateRecipeViewController: UIViewController {
 //           imagePicker.delegate = self
 //           imagePicker.sourceType = .photoLibrary
 //           self.present(imagePicker, animated: true, completion: nil)
-        // Создание нового текстового поля
+
                let textField = UITextField()
                textField.placeholder = "Введите текст"
                textField.borderStyle = .roundedRect
