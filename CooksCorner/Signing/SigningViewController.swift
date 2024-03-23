@@ -19,8 +19,18 @@ class SigningViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.delegate = self
+        setupButtonsTarget()
 
         
+    }
+    
+    private func setupButtonsTarget() {
+        contentView.signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
+    }
+    @objc private func signInButtonTapped() {
+        let viewController = MainTabBarViewController()
+        viewController.navigationItem.setHidesBackButton(true, animated: false)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

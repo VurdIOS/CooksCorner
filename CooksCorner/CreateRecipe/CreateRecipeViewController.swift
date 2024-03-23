@@ -14,7 +14,7 @@ class CreateRecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Create recipe"
+//        title = "Create recipe"
         setupButtonsTargets()
     }
     
@@ -26,23 +26,38 @@ class CreateRecipeViewController: UIViewController {
     private func setupButtonsTargets() {
         contentView.addPhotoButton.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
         contentView.changePhotoButton.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
+        contentView.addIngridientButton.addTarget(self, action: #selector(addIngridientButtonTapped), for: .touchUpInside)
+        contentView.createRecipeButton.addTarget(self, action: #selector(createRecipeButtonTapped), for: .touchUpInside)
     }
     
     @objc func addPhotoButtonTapped() {
-//           // Функция для отображения image picker
-//           let imagePicker = UIImagePickerController()
-//           imagePicker.delegate = self
-//           imagePicker.sourceType = .photoLibrary
-//           self.present(imagePicker, animated: true, completion: nil)
+           let imagePicker = UIImagePickerController()
+           imagePicker.delegate = self
+           imagePicker.sourceType = .photoLibrary
+           self.present(imagePicker, animated: true, completion: nil)
 
-               let textField = UITextField()
-               textField.placeholder = "Введите текст"
-               textField.borderStyle = .roundedRect
+    }
+    
+    @objc func createRecipeButtonTapped() {
+        viewModel.create(recipe: NewRecipe(
+            image: contentView.recipePhotoImageView.image,
+            name: contentView.nameTextField.text!,
+            description: contentView.descriptionTextField.text!,
+            ingredient: nil,
+            difficulty: "Medium", //сделать вывод с кнопок
+            category: contentView.categorydButton.currentTitle!,
+            preparationTime: contentView.timeTextField.text!))
+    }
+    
+    @objc func addIngridientButtonTapped() {
+        let textField = IngridientTextFieldsView()
         contentView.VStack.addArrangedSubview(textField)
         contentView.VStack.layoutIfNeeded()
         contentView.setupScrollViewHeight()
-       }
+    }
 }
+
+
 
 
 extension CreateRecipeViewController: UIImagePickerControllerDelegate {

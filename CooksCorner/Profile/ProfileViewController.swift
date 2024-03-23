@@ -1,16 +1,15 @@
-//
-//  HomeViewController.swift
-//  CooksCorner
-//
-//  Created by Камаль Атавалиев on 13.03.2024.
-//
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class ProfileViewController: UIViewController {
     
-    private let contentView = HomeContentView()
-    private let viewModel: HomeViewModelProtocol
+    private var viewModel: ProfileViewModelProtocol
+    private let contentView = ProfileContentView()
+    
+    init(viewModel: ProfileViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
     
     override func loadView() {
         view = contentView
@@ -18,28 +17,21 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         setUpCollectionView()
-        // Do any additional setup after loading the view.
     }
-    
-    init(viewModel: HomeViewModelProtocol) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    
     
     private func setUpCollectionView() {
-        contentView.recipesCollectionView.delegate = self
-        contentView.recipesCollectionView.dataSource = self
+        contentView.recipeCollectionView.delegate = self
+        contentView.recipeCollectionView.dataSource = self
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-extension HomeViewController: UICollectionViewDataSource {
+extension ProfileViewController:  UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.getRecipeCount()
     }
@@ -50,22 +42,14 @@ extension HomeViewController: UICollectionViewDataSource {
         return cell
     }
     
-    
-}
-
-extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipe = viewModel.getRecipe(index: indexPath.row)
-        let viewController = RecipeDetailViewController(viewModel: viewModel.getDataforRecipeDetailViewController(recipe: recipe))
-        viewController.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(viewController, animated: true)
+        let detailRecipeViewController = RecipeDetailViewController(viewModel: viewModel.getDataForDetailViewModel(recipe: recipe))
+        navigationController?.pushViewController(detailRecipeViewController, animated: true)
     }
-}
-
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = (view.frame.width - 40 - 15) / 2
-        return CGSize(width: cellWidth, height: 209)
+        return CGSize(width: 169, height: 209)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

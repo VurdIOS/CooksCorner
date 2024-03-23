@@ -54,13 +54,6 @@ class HomeContentView: UIView {
         return collectionView
     }()
     
-    private lazy var tabBar: UITabBar = {
-        let tab = UITabBar()
-        tab.translatesAutoresizingMaskIntoConstraints = false
-        // Добавь табы...
-        return tab
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -80,9 +73,6 @@ class HomeContentView: UIView {
         addSubview(categorySegmentedControl)
         
         addSubview(recipesCollectionView)
-        
-        addSubview(tabBar)
-        
         // Настройка делегатов и источников данных...
     }
     
@@ -112,12 +102,7 @@ class HomeContentView: UIView {
             recipesCollectionView.topAnchor.constraint(equalTo: categorySegmentedControl.bottomAnchor, constant: 16),
             recipesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             recipesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            recipesCollectionView.bottomAnchor.constraint(equalTo: tabBar.topAnchor, constant: -16),
-            
-            // TabBar constraints
-            tabBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            tabBar.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            tabBar.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            recipesCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
         ])
     }
     

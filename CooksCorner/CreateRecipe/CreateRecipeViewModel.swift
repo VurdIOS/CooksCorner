@@ -7,18 +7,14 @@
 
 import Foundation
 protocol CreateRecipeViewModelProtocol {
-    var isPhotoAdded: Bool { get }
-    func photoStateChange()
+    func create(recipe: NewRecipe)
+
 }
 
 class CreateRecipeViewModel: CreateRecipeViewModelProtocol {
-    var isPhotoAdded: Bool {
-        photoState
+    func create(recipe: NewRecipe) {
+        print(recipe)
     }
+
     
-    private var photoState = false
-    
-    func photoStateChange() {
-        photoState.toggle()
-    }
 }
