@@ -13,6 +13,7 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         generateTabBar()
         tabBar.tintColor = .mainOrangeColor
+        tabBar.backgroundColor = .white
     }
 
     private func generateTabBar() {

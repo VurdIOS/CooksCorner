@@ -56,7 +56,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipe = viewModel.getRecipe(index: indexPath.row)
-        let viewController = RecipeDetailViewController(viewModel: viewModel.getDataforRecipeDetailViewController(recipe: recipe))
+        let viewController = RecipeDetailNewViewController(viewModel: viewModel.getDataforNEWRecipeDetailViewController(recipe: recipe))
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }

@@ -10,6 +10,7 @@ protocol HomeViewModelProtocol {
     func getRecipeCount() -> Int
     func getRecipe(index: Int) -> Recipe
     func getDataforRecipeDetailViewController(recipe: Recipe) -> RecipeDetailViewModelProtocol
+    func getDataforNEWRecipeDetailViewController(recipe: Recipe) -> RecipeDetailNEWViewModelProtocol
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -27,6 +28,10 @@ class HomeViewModel: HomeViewModelProtocol {
     
     func getDataforRecipeDetailViewController(recipe: Recipe) -> RecipeDetailViewModelProtocol {
         RecipeDetailViewModel(recipe: recipe)
+    }
+    
+    func getDataforNEWRecipeDetailViewController(recipe: Recipe) -> RecipeDetailNEWViewModelProtocol {
+        TourDetailsTopTableViewCellViewModel(recipe: recipe)
     }
     
 }
