@@ -10,7 +10,7 @@ import Foundation
 protocol ProfileViewModelProtocol: AnyObject {
     func getRecipeCount() -> Int
     func getRecipe(index: Int) -> Recipe
-    func getDataForDetailViewModel(recipe: Recipe) -> RecipeDetailViewModelProtocol
+    func getDataForDetailViewModel(recipe: Recipe) -> RecipeDetailNEWViewModelProtocol
 }
 
 class ProfileViewModel: ProfileViewModelProtocol {
@@ -25,7 +25,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
         recipeData[index]
     }
     
-    func getDataForDetailViewModel(recipe: Recipe) -> RecipeDetailViewModelProtocol {
-        RecipeDetailViewModel(recipe: recipe)
+    func getDataForDetailViewModel(recipe: Recipe) -> RecipeDetailNEWViewModelProtocol {
+        RecipeDetailNEWViewModel(recipe: recipe)
     }
 }

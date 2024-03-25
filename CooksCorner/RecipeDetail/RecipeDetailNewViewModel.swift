@@ -13,7 +13,7 @@ protocol RecipeDetailNEWViewModelProtocol {
 
 }
 
-class TourDetailsTopTableViewCellViewModel: RecipeDetailNEWViewModelProtocol {
+class RecipeDetailNEWViewModel: RecipeDetailNEWViewModelProtocol {
 
     
     

@@ -9,7 +9,7 @@ import Foundation
 protocol HomeViewModelProtocol {
     func getRecipeCount() -> Int
     func getRecipe(index: Int) -> Recipe
-    func getDataforRecipeDetailViewController(recipe: Recipe) -> RecipeDetailViewModelProtocol
+
     func getDataforNEWRecipeDetailViewController(recipe: Recipe) -> RecipeDetailNEWViewModelProtocol
 }
 
@@ -26,12 +26,8 @@ class HomeViewModel: HomeViewModelProtocol {
           mokeRecipes[index]
       }
     
-    func getDataforRecipeDetailViewController(recipe: Recipe) -> RecipeDetailViewModelProtocol {
-        RecipeDetailViewModel(recipe: recipe)
-    }
-    
     func getDataforNEWRecipeDetailViewController(recipe: Recipe) -> RecipeDetailNEWViewModelProtocol {
-        TourDetailsTopTableViewCellViewModel(recipe: recipe)
+        RecipeDetailNEWViewModel(recipe: recipe)
     }
     
 }

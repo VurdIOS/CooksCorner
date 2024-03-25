@@ -44,7 +44,7 @@ extension ProfileViewController:  UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipe = viewModel.getRecipe(index: indexPath.row)
-        let detailRecipeViewController = RecipeDetailViewController(viewModel: viewModel.getDataForDetailViewModel(recipe: recipe))
+        let detailRecipeViewController = RecipeDetailNewViewController(viewModel: viewModel.getDataForDetailViewModel(recipe: recipe))
         navigationController?.pushViewController(detailRecipeViewController, animated: true)
     }
     

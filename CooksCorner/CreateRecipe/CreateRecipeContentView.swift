@@ -8,6 +8,26 @@
 import UIKit
 
 class CreateRecipeContentView: UIView {
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Create recipe"
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Poppins-Medium", size: 20)
+        return label
+    }()
+    
+    let backButton: UIButton = {
+       let button = UIButton()
+        button.setImage(UIImage(named: "ArrowLeft"), for: .normal)
+        button.setTitle("asd", for: .normal)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
     let photoFieldTitle: UILabel = {
         let label = UILabel()
         label.text = "Add a recipe Photo"
@@ -178,9 +198,11 @@ class CreateRecipeContentView: UIView {
     
     let categorydButton: UIButton = {
         let label = UIButton()
-        label.setTitle("  Breakfast", for: .normal)
+       
 //        label.font = UIFont(name: "Poppins-Medium", size: 12)
         label.setTitleColor(.black, for: .normal)
+        label.backgroundColor = .textFieldBackGround
+        label.layer.cornerRadius = 22
         label.contentHorizontalAlignment = .left
         label.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 14)
         
@@ -230,6 +252,7 @@ class CreateRecipeContentView: UIView {
     lazy var scrollView: UIScrollView = {
        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInsetAdjustmentBehavior = .never
         
         return scrollView
         
@@ -253,6 +276,8 @@ class CreateRecipeContentView: UIView {
     
     private func setupUI() {
         addSubview(scrollView)
+        scrollView.addSubview(titleLabel)
+        scrollView.addSubview(backButton)
         scrollView.addSubview(photoFieldTitle)
         scrollView.addSubview(backgroundView)
         backgroundView.addSubview(recipePhotoImageView)
@@ -264,7 +289,6 @@ class CreateRecipeContentView: UIView {
         scrollView.addSubview(descriptionTextField)
         scrollView.addSubview(ingredientFieldTitle)
         scrollView.addSubview(VStack)
-//        VStack.addArrangedSubview(ingredientTextField)
         VStack.addArrangedSubview(ingredientView)
         scrollView.addSubview(difficultyFieldTitle)
         scrollView.addSubview(addIngridientButton)
@@ -285,7 +309,16 @@ class CreateRecipeContentView: UIView {
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            photoFieldTitle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            backButton.widthAnchor.constraint(equalToConstant: 30),
+            backButton.heightAnchor.constraint(equalToConstant: 30),
+            
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 52),
+            titleLabel.widthAnchor.constraint(equalToConstant: 150),
+            titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            
+            photoFieldTitle.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             photoFieldTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             photoFieldTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
@@ -425,7 +458,7 @@ class CreateRecipeContentView: UIView {
     }
     
     func setupButtons() {
-        let massive = ["Breakfast", "Dinner", "Launch", "Evening"]
+        let massive = ["  Breakfast", "  Dinner", "  Launch", "  Evening"]
         var menuChildren: [UIMenuElement] = []
         for fruit in massive {
             menuChildren.append(UIAction(title: fruit, handler: actionClosure))

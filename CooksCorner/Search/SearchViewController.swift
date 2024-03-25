@@ -13,10 +13,21 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupButtonsTarget()
     }
     
     override func loadView() {
         view = contentView
+    }
+    
+    private func setupButtonsTarget() {
+        contentView.addRecipeButton.addTarget(self, action: #selector(addRecipeButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func addRecipeButtonTapped() {
+        let viewController = CreateRecipeViewController()
+        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 

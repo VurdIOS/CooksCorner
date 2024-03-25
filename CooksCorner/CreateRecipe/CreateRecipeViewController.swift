@@ -14,8 +14,15 @@ class CreateRecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        title = "Create recipe"
         setupButtonsTargets()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     
@@ -24,10 +31,16 @@ class CreateRecipeViewController: UIViewController {
     }
     
     private func setupButtonsTargets() {
+        contentView.backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         contentView.addPhotoButton.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
         contentView.changePhotoButton.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
         contentView.addIngridientButton.addTarget(self, action: #selector(addIngridientButtonTapped), for: .touchUpInside)
         contentView.createRecipeButton.addTarget(self, action: #selector(createRecipeButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func backButtonTapped() {
+        
+        print("heloooooo")
     }
     
     @objc func addPhotoButtonTapped() {
