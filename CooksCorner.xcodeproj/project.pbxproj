@@ -43,8 +43,6 @@
 		3A49656B2BA07B780031777B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49656A2BA07B780031777B /* UITextField.swift */; };
 		3A49656D2BA089DA0031777B /* UiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49656C2BA089DA0031777B /* UiButton.swift */; };
 		3A6561A82BAEC8B400485EBF /* IngridientTextFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561A72BAEC8B400485EBF /* IngridientTextFieldsView.swift */; };
-		3A6561AA2BAEDCF700485EBF /* example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561A92BAEDCF700485EBF /* example.swift */; };
-		3A6561AC2BAEE0C100485EBF /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561AB2BAEE0C100485EBF /* UIString.swift */; };
 		3A6561AE2BAEE32000485EBF /* MealSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561AD2BAEE32000485EBF /* MealSize.swift */; };
 		3A6561B02BAF0A5E00485EBF /* NewRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561AF2BAF0A5E00485EBF /* NewRecipe.swift */; };
 		3A6561B22BAF0AA700485EBF /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561B12BAF0AA700485EBF /* Ingredient.swift */; };
@@ -110,8 +108,6 @@
 		3A49656A2BA07B780031777B /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		3A49656C2BA089DA0031777B /* UiButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiButton.swift; sourceTree = "<group>"; };
 		3A6561A72BAEC8B400485EBF /* IngridientTextFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientTextFieldsView.swift; sourceTree = "<group>"; };
-		3A6561A92BAEDCF700485EBF /* example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example.swift; sourceTree = "<group>"; };
-		3A6561AB2BAEE0C100485EBF /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
 		3A6561AD2BAEE32000485EBF /* MealSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSize.swift; sourceTree = "<group>"; };
 		3A6561AF2BAF0A5E00485EBF /* NewRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipe.swift; sourceTree = "<group>"; };
 		3A6561B12BAF0AA700485EBF /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -188,7 +184,6 @@
 				3A49653C2BA073A40031777B /* UIColor.swift */,
 				3A49656A2BA07B780031777B /* UITextField.swift */,
 				3A49656C2BA089DA0031777B /* UiButton.swift */,
-				3A6561AB2BAEE0C100485EBF /* UIString.swift */,
 				3A36528A2BB19D9B000EAFD4 /* UIView.swift */,
 			);
 			path = Extension;
@@ -239,7 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				3A6561A72BAEC8B400485EBF /* IngridientTextFieldsView.swift */,
-				3A6561A92BAEDCF700485EBF /* example.swift */,
 				3A3652882BB19644000EAFD4 /* IngridientView.swift */,
 			);
 			path = SharedView;
@@ -508,12 +502,10 @@
 				3A6561B52BAF1E8F00485EBF /* MainabBarViewController.swift in Sources */,
 				3A3652832BB159AA000EAFD4 /* RecipedetailNewContentView.swift in Sources */,
 				3A6561B92BAF228200485EBF /* SearchContentView.swift in Sources */,
-				3A6561AC2BAEE0C100485EBF /* UIString.swift in Sources */,
 				3A4965672BA07AA10031777B /* SigningContentView.swift in Sources */,
 				3A6561B02BAF0A5E00485EBF /* NewRecipe.swift in Sources */,
 				3AC572A92BA0CE8D0021693C /* RegistrationContentView.swift in Sources */,
 				3A36527D2BB15907000EAFD4 /* BottomCellViewModel.swift in Sources */,
-				3A6561AA2BAEDCF700485EBF /* example.swift in Sources */,
 				3A0B7C1C2BAB31A1005E0B53 /* CreateRecipeContentView.swift in Sources */,
 				3A0B7C1E2BAB31B9005E0B53 /* CreateRecipeViewController.swift in Sources */,
 				3A36527F2BB15934000EAFD4 /* TopCell.swift in Sources */,

@@ -6,18 +6,11 @@
 //
 
 import UIKit
-import SwiftyMenu
 
 
 
 class IngridientTextFieldsView: UIView {
-    
-    private let dropDownCodeOptionsDataSource = [
-        MealSize(id: 1, name: "kg"),
-        MealSize(id: 2, name: "ml"),
-        MealSize(id: 3, name: "pd"),
-        MealSize(id: 4, name: "ft"),
-    ]
+
     
     let ingredientTextField: UITextField = {
         let textField = UITextField()
